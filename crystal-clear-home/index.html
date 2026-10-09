@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10253e"><title>Crystal Clear Home · Cleaning</title>
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;color:#eaf2ff;background:#071627}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#1b456a,#071627 62%);min-height:100dvh}.wrap{max-width:800px;margin:auto;padding:22px 16px 68px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}small,.muted{color:#a9bfd4}.brand{font-weight:800;letter-spacing:.08em;font-size:.8rem;color:#9ecef1}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.14;margin:14px 0}h2{font-size:1.25rem;margin:0 0 12px}p{line-height:1.55}section{background:#132a43;border:1px solid #35516a;border-radius:18px;padding:20px;margin-top:16px}button,select,input,textarea{font:inherit}button{border:1px solid #7ba8c8;border-radius:11px;background:#234969;color:white;padding:11px 15px;cursor:pointer}button.primary{background:#8bdfd3;color:#092b32;border-color:#8bdfd3;font-weight:800}button:disabled{opacity:.46;cursor:not-allowed}button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #a3d9ff;outline-offset:3px}select,textarea{width:100%;background:#0c2034;color:white;border:1px solid #64819a;border-radius:10px;padding:12px;margin:6px 0 15px}label{display:block;font-weight:650}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.pill{display:inline-block;padding:5px 10px;border:1px solid #5e869f;border-radius:100px;color:#b9ecff;font-size:.8rem}.step{display:flex;align-items:center;gap:9px;margin:12px 0;color:#d7e7f7}.num{background:#315779;border-radius:50%;display:inline-grid;place-items:center;width:27px;height:27px;font-weight:800}.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin:12px 0}.photos figure{margin:0}.photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:11px;border:1px solid #6183a0}.photos figcaption{font-size:.73rem;color:#bfcede;overflow-wrap:anywhere}.action{margin:10px 0}.notice{border-left:3px solid #e7ba74;padding:10px 14px;background:#1c3046}.error{color:#ffc2c2}.success{color:#a6ecd0}.metric{color:#b8d4eb;font-size:.85rem}.hidden{display:none!important}.session{border-top:1px solid #3c5971;padding:12px 0}.session:first-of-type{border-top:0}input[type=file]{width:100%;max-width:100%;margin:10px 0;color:#cde0ed}a{color:#b1dfff}footer{margin-top:25px;color:#a6bdd1;font-size:.84rem}@media(max-width:500px){section{padding:16px}button{min-height:44px}}
+</style></head>
+<body><main class="wrap">
+<header><div class="brand">CRYSTAL CLEAR ORGANIZATION / HOME</div><span class="pill">Sprint 1 · Mobile PoC</span></header>
+<h1>Cleaning Activities</h1>
+<p class="muted">Record before-and-after evidence for each household cleaning session.</p>
+<div class="notice" role="status" id="storage-note"><b>Interface preview.</b> Google Sheets and Drive are not connected yet. Photos and sessions in this preview remain in browser memory only and disappear on refresh. No upload occurs.</div>
+<section id="new-panel"><h2>Start a cleaning activity</h2><label for="room">Room</label>
+<select id="room"><option value="">Select a room</option><option value="ROOM-LIVING">Living Room</option><option value="ROOM-KITCHEN">Kitchen</option><option value="ROOM-BEDROOM">Bedroom</option><option value="ROOM-BATHROOM">Bathroom</option><option value="ROOM-OTHER">Other Area</option></select>
+<label for="notes">Notes (optional)</label><textarea id="notes" rows="2" maxlength="500" placeholder="What needs attention?"></textarea>
+<button id="start" class="primary">Start Cleaning</button></section>
+<section id="current" class="hidden"><div class="row" style="justify-content:space-between"><h2 id="session-title">Active cleaning</h2><span class="pill" id="status">In progress</span></div>
+<p class="muted" id="activity-meta"></p>
+<div class="step"><span class="num">1</span><b>Before photographs</b></div><p class="muted">Take one or more pictures showing the room before cleaning.</p>
+<label for="before">Add before photos</label><input id="before" type="file" accept="image/*" capture="environment" multiple><div class="photos" id="before-images"></div>
+<div class="step"><span class="num">2</span><b>Perform cleaning</b></div><p class="muted">Clean the room. This activity remains open until you finish.</p>
+<div class="step"><span class="num">3</span><b>After photographs</b></div><p class="muted">Take pictures showing the completed work.</p>
+<label for="after">Add after photos</label><input id="after" type="file" accept="image/*" capture="environment" multiple><div class="photos" id="after-images"></div>
+<p id="counts" class="metric"></p><button class="primary" id="complete" disabled>Complete Activity</button><p class="metric" id="timing"></p></section>
+<section><h2>Activity history <span id="history-count" class="pill">0</span></h2><div id="history"><p class="muted">No activities yet.</p></div></section>
+<p id="message" role="status"></p>
+<footer>Public interface · No real household records or photographs are published · <a href="../">Crystal Clear Web</a></footer>
+</main><script src="./app.js"></script></body></html>
