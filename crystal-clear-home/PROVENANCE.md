@@ -24,3 +24,14 @@
 **AI interpretation:** Crystal Clear Home brings lessons from distinct people/projects/periods into a conversationally developed architecture. Reuse modules pragmatically rather than force OOP classes; preserve behavior with regression tests. Conversational acceleration of analysis/documentation is not evidence that the delivered application meets its acceptance criteria.
 
 **Provenance status:** This entry preserves conceptual rationale and distinguishes memory from verification. No new functionality or test execution is claimed.
+
+## 2026-10-09 — Role journey MVP and staged photo management
+**Human requirement:** Public-facing Crystal Clear Home SPA with two test personas: Executor starts a Living Room session, takes multiple before/after photos, removes unwanted previews before completion and saves; Manager signs in and sees today's completion status by room, activity history and full before/after evidence drilldown. Prioritize the normal happy path, real mobile testing, Google Sheets/Drive data traceability and reproducible UAT. UI uses role-based language and separate operational application from TV dashboard.
+
+**Implemented source:** `index.html` SPA views, `app.js` preview adapter using browser IndexedDB including photo blobs, `domain.js` testable rules, `tests/domain.test.cjs`, `README.md` with published demo credentials and explicit safety notice. UX includes before/after previews with Remove before completion, local activity history and today's room-completion summaries. The two publicly disclosed passwords are merely client-side preview gates; **not real authentication**. No Google credentials or private photos in repository.
+
+**Data provisioned:** Google Sheets workbook with tabs Rooms, ActivityDefinitions, Activities, Evidence, Roles, Users, UserRoles: https://docs.google.com/spreadsheets/d/17mG8Rx7T-hCf1-fkbJ90VVVcqI7F2EbFgkz7ZjhbxUo/edit . Master room, activity definition and role sample rows inserted. **No live application backend is connected to Sheets or Drive**. A Drive evidence folder and real storage integration remain outstanding.
+
+**Verification:** GitHub write responses succeeded; deployment reachability was not confirmed using web retrieval; Android Chrome UI/UAT and test execution remain NOT TESTED. Domain tests exist but have not been independently executed in this session. Do not claim the requested Google Workspace-connected end-to-end scenario passed.
+
+**Outstanding:** Provision restricted backend with server-side auth, write/read data persistence, Drive uploads, idempotent retries, actual upload timing, deployed Pages verification, end-to-end tests and human sign-off. No security-sensitive service credentials may be placed in the public frontend.
