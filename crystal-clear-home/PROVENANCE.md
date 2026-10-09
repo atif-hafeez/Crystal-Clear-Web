@@ -17,3 +17,10 @@
 **Clarification:** `User_ID`, `Users` and `UserRoles` remain valid names for identity data because a person can possess multiple roles. Role-based UI guidance is not a claim that authorization has been implemented.
 
 **Verification:** Documentation updates only; no app behavior or backend integration changed.
+
+## 2026-10-09 · Cross-project engineering knowledge synthesis
+**Human recollection:** Stephen emphasized efficiency, code reuse, small functions, simplicity and refactoring in earlier real-time C application development. The human recalls a tool name sounding like 'Z binder', not independently identified. The human's own ATCS migration checklist and Power Apps experience informs workflow tracking, business roles, KPIs and UAT.
+
+**AI interpretation:** Crystal Clear Home brings lessons from distinct people/projects/periods into a conversationally developed architecture. Reuse modules pragmatically rather than force OOP classes; preserve behavior with regression tests. Conversational acceleration of analysis/documentation is not evidence that the delivered application meets its acceptance criteria.
+
+**Provenance status:** This entry preserves conceptual rationale and distinguishes memory from verification. No new functionality or test execution is claimed.
