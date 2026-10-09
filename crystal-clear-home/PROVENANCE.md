@@ -10,3 +10,10 @@
 **Open risks:** Public frontend access does not authorize unrestricted backend writes; photo storage requires restricted integration and retention policy. For genuine persistence testing, the user must approve/connect suitable Google Workspace assets and a bounded backend. Human production acceptance remains pending.
 
 **Trace:** Sprint issue https://github.com/atif-hafeez/Crystal-Clear-Web/issues/2 ; initial commits `dad0c1bd3214bf1f4233d57c72024c0b84b5518c`, `77f0a887dddeb991cc0f41e85ce0ef932c63cacf`.
+
+## 2026-10-09 · Domain vocabulary and collaborative provenance
+**Human instruction:** Use role-specific language: **Executor** performs cleaning, uploads before/after evidence and completes the activity; **Manager** views and reports on saved activities. Avoid saying generic 'user' when referring to role-specific behavior. Human–AI design discussion itself provides rationale and provenance.
+
+**Clarification:** `User_ID`, `Users` and `UserRoles` remain valid names for identity data because a person can possess multiple roles. Role-based UI guidance is not a claim that authorization has been implemented.
+
+**Verification:** Documentation updates only; no app behavior or backend integration changed.
