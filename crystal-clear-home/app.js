@@ -1,0 +1,20 @@
+"use strict";
+// Sprint 1 interface preview. Adapter boundary: replace preview operations with a restricted
+// backend service before claiming durable Google Sheets / Google Drive persistence.
+const rooms={"ROOM-LIVING":"Living Room","ROOM-KITCHEN":"Kitchen","ROOM-BEDROOM":"Bedroom","ROOM-BATHROOM":"Bathroom","ROOM-OTHER":"Other Area"};
+const $=id=>document.getElementById(id);
+const sessions=[];let current=null;let counter=0;
+const formatTime=iso=>new Date(iso).toLocaleString();
+function makeId(prefix){return prefix+"-"+crypto.randomUUID();}
+function msg(text,isError=false){$("message").textContent=text;$("message").className=isError?"error":"success";}
+function addImages(target,files){const box=$(target);box.replaceChildren();for(const p of files){const figure=document.createElement("figure");const image=document.createElement("img");image.src=p.url;image.alt="Cleaning evidence preview";const caption=document.createElement("figcaption");caption.textContent=p.file.name;figure.append(image,caption);box.append(figure);}}
+function update(){const active=Boolean(current);$("current").classList.toggle("hidden",!active);$("new-panel").classList.toggle("hidden",active);
+ if(active){$("session-title").textContent=rooms[current.room];$("activity-meta").textContent=current.id+" · Started "+formatTime(current.startedAt);addImages("before-images",current.before);addImages("after-images",current.after);$("counts").textContent=current.before.length+" before · "+current.after.length+" after";$("complete").disabled=!(current.before.length&&current.after.length);}
+ $("history-count").textContent=String(sessions.length);const history=$("history");history.replaceChildren();
+ if(!sessions.length){const p=document.createElement("p");p.className="muted";p.textContent="No activities yet.";history.append(p);}
+ for(const s of [...sessions].reverse()){const div=document.createElement("div");div.className="session";const title=document.createElement("b");title.textContent=rooms[s.room]+" · "+s.status;const meta=document.createElement("div");meta.className="muted";meta.textContent=s.id+" · "+formatTime(s.startedAt)+(s.completedAt?" · Completed "+formatTime(s.completedAt):"")+" · "+s.before.length+" before / "+s.after.length+" after";div.append(title,meta);history.append(div);}}
+$("start").onclick=()=>{const room=$("room").value;if(!rooms[room])return msg("Select a room first.",true);const t0=performance.now();const s={id:makeId("ACT"),room,notes:$("notes").value.trim(),status:"in_progress",startedAt:new Date().toISOString(),completedAt:null,before:[],after:[]};sessions.push(s);current=s;$("timing").textContent="Preview session creation: "+(performance.now()-t0).toFixed(1)+" ms (browser only; not a Sheets write).";update();msg("Preview activity started. Not saved to Google Sheets.");};
+async function capture(stage,event){if(!current)return;const files=[...event.target.files];if(!files.length)return;const t0=performance.now();for(const file of files){if(!file.type.startsWith("image/")){msg("Only image files can be added.",true);continue;}const evidence={id:makeId("EV"),activityId:current.id,stage,file,url:URL.createObjectURL(file),capturedAt:new Date().toISOString()};current[stage].push(evidence);}event.target.value="";update();$("timing").textContent="Preview processing: "+(performance.now()-t0).toFixed(1)+" ms (no Drive upload).";msg("Photos selected on device. Not uploaded to Google Drive.");}
+$("before").addEventListener("change",e=>capture("before",e));$("after").addEventListener("change",e=>capture("after",e));
+$("complete").onclick=()=>{if(!current||!current.before.length||!current.after.length)return msg("Both before and after photos are required.",true);const t0=performance.now();current.status="completed";current.completedAt=new Date().toISOString();current=null;update();$("timing").textContent="";msg("Preview activity completed. This record is not persisted and will disappear on refresh.");};
+update();
