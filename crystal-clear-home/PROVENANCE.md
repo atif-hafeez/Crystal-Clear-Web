@@ -35,3 +35,10 @@
 **Verification:** GitHub write responses succeeded; deployment reachability was not confirmed using web retrieval; Android Chrome UI/UAT and test execution remain NOT TESTED. Domain tests exist but have not been independently executed in this session. Do not claim the requested Google Workspace-connected end-to-end scenario passed.
 
 **Outstanding:** Provision restricted backend with server-side auth, write/read data persistence, Drive uploads, idempotent retries, actual upload timing, deployed Pages verification, end-to-end tests and human sign-off. No security-sensitive service credentials may be placed in the public frontend.
+
+## 2026-10-09 — Google Workspace persistence adapter started
+**Human decision:** Google Sheets/Drive remains the shared, browser-accessible operational system of record. IndexedDB is useful for responsive local drafts but cannot support cross-device Manager review or direct conversational Workspace retrieval. Develop Apps Script backend integration.
+
+**Implementation:** Added `backend/Code.gs` internal Google Apps Script services for Executor activity creation, private Drive photo evidence uploads with Sheet references, idempotent completion with stored Duration_Seconds, and Manager filtered activity retrieval/details. Added `backend/README.md` deployment and authorization requirements. Commits: `af9f1ce2183a0674496e4c9facd8c2b8cd6bc186` and `11a89416046de89f2f317d6e2d52a3e23638fa6a`.
+
+**Not implemented or verified:** Apps Script deployment, real server-verified authentication, cross-origin client API integration, private photo reads, duplicate-upload reconciliation, actual Drive/Sheets writes, performance tests, cross-device UAT. Backend source is not proof of successful persistence. Avoid exposing an anonymous unrestricted Apps Script endpoint from the public site.
