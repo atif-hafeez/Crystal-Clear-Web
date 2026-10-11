@@ -56,3 +56,17 @@
 **Corrective decision / draft documentation:** original image fidelity outranks presentation; only actual source pixels with faithful crop/resize/non-destructive markup are admissible as photo evidence. Mark wrong-stage/synthetic evidentiary panels as blocking defects, preserve source-to-panel IDs, label statement vs observation vs AI inference, and require human final acceptance. Draft standard: [CLEANING-EVIDENCE-QA-STANDARD.md](./CLEANING-EVIDENCE-QA-STANDARD.md). Issue: https://github.com/atif-hafeez/Crystal-Clear-Web/issues/4 .
 
 **Verification/status:** Issue and Markdown standard committed. No private images uploaded to public GitHub; no verified Google Sheets/Drive persistence. Revised two-page original-photo report and human sign-off remain pending.
+
+
+## 2026-10-11 — Independent consultation, challenge, reassessment, Manager approval
+**Source provenance:** Manager shared an initial independent DeepSeek consultant review of the living-room POC; ChatGPT critiqued it after consultation with Manager; Manager forwarded that critique; DeepSeek issued a revised consultant reassessment; Manager explicitly approved the reassessment. Original full conversation stays in chat; public repository records text-only summary and decision.
+
+**Initial DeepSeek critique:** invisible ad-hoc scoring rubric, insufficient structured operational data and an imprecise allegation of missing human verification; proposed domain-specific Kitchen/Bathroom rubrics and reused visuals. Material omissions: fabricated BEFORE photo representations in generated report and demonstrable human correction; inaccurate Dubai-specific regulatory assumptions; wording that treated consultant advice as phase authorization.
+
+**ChatGPT review after human consultation:** insisted on documenting visual-evidence failure; distinguished human verification-in-practice from predetermined acceptance gates; separated visual cleanliness / task scope / conditions outside cleaner control / hygiene not verifiable by photo; distinguished persistent records from JSON; reinforced conversation-first architecture, UAE federal + Sharjah jurisdiction and exclusive human approval authority.
+
+**DeepSeek reassessment:** accepted critiques, withdrew Dubai Montaji assumption for Sharjah, narrowed validation claim to conversational interaction (not inspection system), identified source-photo integrity failure as most significant incident, and proposed source-photo signoff before scoring, defined task scope, four-part rubric, provenance separation and concise decision log. Independent consulting remains advisory.
+
+**Human decision CCH-DEC-20261011-001 (APPROVED):** Manager expressly approved the **DeepSeek reassessment** as reviewed findings and future governance direction. This is not approval of the originally defective report, a new Kitchen/Bathroom launch, production readiness, or proof the safeguards exist. Issue #4 remains open until technical QA/acceptance work is completed.
+
+**Artifact:** [Review challenge, reassessment and decision log](../docs/CCH-INDEPENDENT-REVIEW-2026-10-11.md). **Operational gap:** no verified photo hashes or source-set signoff, no agreed/calibrated room rubric and no durable cloud cleaning data records established by this POC.
