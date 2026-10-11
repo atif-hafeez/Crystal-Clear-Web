@@ -42,3 +42,17 @@
 **Implementation:** Added `backend/Code.gs` internal Google Apps Script services for Executor activity creation, private Drive photo evidence uploads with Sheet references, idempotent completion with stored Duration_Seconds, and Manager filtered activity retrieval/details. Added `backend/README.md` deployment and authorization requirements. Commits: `af9f1ce2183a0674496e4c9facd8c2b8cd6bc186` and `11a89416046de89f2f317d6e2d52a3e23638fa6a`.
 
 **Not implemented or verified:** Apps Script deployment, real server-verified authentication, cross-origin client API integration, private photo reads, duplicate-upload reconciliation, actual Drive/Sheets writes, performance tests, cross-device UAT. Backend source is not proof of successful persistence. Avoid exposing an anonymous unrestricted Apps Script endpoint from the public site.
+
+
+## 2026-10-11 — Conversation-centered household cleaning POC and evidence-integrity defect
+**Human requirement / architecture exploration:** Instead of requiring a purpose-built cleaning SPA for all steps, use the conversational AI window as the stable operating center: Executor supplies images/context, AI provides interim evaluation and structured QA, Manager retains approval. Sheets/Drive persistence remains a separately verified capability, not an automatic chat behavior. This POC does not itself decommission or implement existing Sprint 1.
+
+**Established visual evidence (private conversation; not committed):** 6 initial BEFORE photographs document floor clutter, bed-wall gap bottles, blocked equipment, crowded desk and TV unit; 3 PROGRESS photographs show partial floor clearing with remaining debris; 5 AFTER photographs show a more usable floor and neater zones but remaining tabletop objects, cables, wall marks and scattered items. The human later re-supplied 5 original BEFORE photographs for verification.
+
+**AI inference, not formal measurement:** visually estimated condition scores ~30% BEFORE, ~45% PROGRESS and ~72% AFTER; qualitative condition 'cleaned and functional'. No claim of sanitation, verified thorough mopping, measured labor duration or calibrated scoring.
+
+**AI-produced output and detected defect:** AI first generated marked-up feedback and a two-page family report. During human review, human identified fabricated/reconstructed or mis-staged BEFORE imagery in page 1, not faithful to original photos. Human instructed no further visual at that stage and required the error to be recorded in a standard. The existing two-page report fails evidence QA and must not be circulated as verified before/after proof.
+
+**Corrective decision / draft documentation:** original image fidelity outranks presentation; only actual source pixels with faithful crop/resize/non-destructive markup are admissible as photo evidence. Mark wrong-stage/synthetic evidentiary panels as blocking defects, preserve source-to-panel IDs, label statement vs observation vs AI inference, and require human final acceptance. Draft standard: [CLEANING-EVIDENCE-QA-STANDARD.md](./CLEANING-EVIDENCE-QA-STANDARD.md). Issue: https://github.com/atif-hafeez/Crystal-Clear-Web/issues/4 .
+
+**Verification/status:** Issue and Markdown standard committed. No private images uploaded to public GitHub; no verified Google Sheets/Drive persistence. Revised two-page original-photo report and human sign-off remain pending.
