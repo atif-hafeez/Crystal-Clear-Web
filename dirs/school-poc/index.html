@@ -7,6 +7,38 @@
 .is-hidden{display:none!important}header{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:16px}h1{font-size:clamp(25px,2.8vw,45px);margin:.15em 0}h2{font-size:clamp(23px,2vw,34px);margin:0 0 9px}h3{font-size:clamp(16px,1.2vw,21px);margin:12px 0 5px;color:var(--gold)}p{margin:6px 0;line-height:1.42}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}.muted{color:var(--muted)}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(15px,1.7vw,28px)}.tag{display:inline-block;border:1px solid #617994;border-radius:18px;padding:3px 10px;font-size:12px;color:#d8e8fa}.subjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:10px 0}.subject{background:#102a45;border-radius:9px;padding:9px 10px;font-size:clamp(13px,.95vw,18px)}.subject b{color:var(--gold);margin-right:9px;font-size:12px}.item{padding:8px 0;border-bottom:1px solid #35526e;font-size:clamp(14px,1vw,19px);line-height:1.35}.item:last-child{border:0}.item strong{color:var(--gold)}.note{font-size:13px;color:#c4d6e9}.utility{display:flex;gap:12px;align-items:center;justify-content:flex-end;flex-wrap:wrap}button{padding:10px 14px;border:1px solid #829cba;border-radius:9px;background:#2d577e;color:white;font:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--gold)}.clock{text-align:right;font-size:clamp(20px,2vw,32px);font-weight:700}footer{font-size:12px;color:var(--muted);margin-top:14px}.login-wrap{min-height:88vh;display:grid;place-items:center}.login-card{width:min(100%,520px);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,38px)}label{display:block;margin:12px 0 5px}input,select{width:100%;padding:12px;border-radius:8px;border:1px solid #829cba;background:#0b1931;color:#fff;font:inherit}.warning{color:#f0d79d;font-size:13px}.error{color:#ffc5c5}.status{background:#102a45;border-radius:12px;padding:13px}.box{margin-top:12px}.sr-only{position:absolute;left:-9999px}
 @media(max-width:790px){main{grid-template-columns:1fr}header{flex-direction:column}.clock{text-align:left}.utility{justify-content:start}.subjects{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1200px) and (min-aspect-ratio: 15/9){.panel{min-height:64vh}.subject{padding:12px}.item{padding:11px 0}}
+
+/* Two-scene household display; one scene every ten seconds */
+.rotation-slide.is-hidden{display:none!important}
+#household-slide{padding:0 0 8px}
+.ops-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:3px 0 12px}
+.ops-head p{margin:0;color:var(--muted);font-size:clamp(12px,1vw,16px)}
+.ops-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ops-card{background:#f7faff;color:#173251;border:2px solid #c6dafa;border-radius:19px;padding:clamp(12px,1.2vw,21px);min-width:0;min-height:62vh;display:flex;flex-direction:column;gap:11px}
+.ops-card h2{font-size:clamp(17px,1.6vw,29px);line-height:1.13;margin:0;color:#102e56}
+.ops-card .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#3261a1}
+.ops-badge{display:inline-flex;padding:5px 12px;border-radius:20px;font-weight:800;font-size:clamp(11px,.88vw,15px);background:#fff1c9;color:#805012}
+.score-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:5px;margin-top:5px}
+.score-box{background:#fce7e7;border-radius:14px;padding:9px;text-align:center}
+.score-box.after{background:#dcf5e7}
+.score-box small{display:block;color:#5c6370}
+.score-box strong{font-size:clamp(23px,3vw,52px);color:#9b2226}
+.score-box.after strong{color:#16734a}
+.score-arrow{font-size:24px;color:#2259a2}
+.ops-note{background:#e8f1fe;border-radius:12px;padding:11px 12px;font-size:clamp(12px,.96vw,16px);line-height:1.35}
+.ops-list{padding-left:21px;margin:4px 0;color:#173251;line-height:1.37;font-size:clamp(13px,1.02vw,18px)}
+.ops-list li{margin:6px 0}
+.ops-list.issues li::marker{color:#d24a34}
+.ops-list.good li::marker{color:#1e9369}
+.ops-foot{margin-top:auto;font-size:clamp(11px,.85vw,14px);border-top:1px solid #c5d6ed;padding-top:10px;color:#52657c}
+.ops-triple{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:7px 0}
+.ops-tile{border-radius:12px;background:#dfebfa;padding:14px 5px;text-align:center;font-size:clamp(11px,.88vw,15px)}
+.ops-tile .symbol{font-size:clamp(23px,2.1vw,38px);display:block;margin-bottom:4px}
+.ops-task{display:flex;align-items:flex-start;gap:8px;border-left:4px solid #df963b;background:#fff4dd;padding:10px;border-radius:9px;font-size:clamp(12px,.95vw,16px)}
+.rotation-controls{display:flex;align-items:center;justify-content:flex-end;gap:9px;margin:7px 0 0;color:var(--muted);font-size:12px}
+.rotation-controls button{padding:5px 11px;font-size:12px}
+@media(max-width:800px){.ops-grid{grid-template-columns:1fr}.ops-card{min-height:unset}}
+@media(min-width:1000px) and (min-aspect-ratio:15/9){#dashboard{height:100dvh;overflow:hidden;display:flex;flex-direction:column}#dashboard>header{flex:0 0 auto}#dashboard>.rotation-slide{flex:1;min-height:0;overflow:hidden}#dashboard>footer{flex:0 0 auto}#household-slide .ops-card{min-height:0;height:100%}.ops-grid{height:calc(100% - 58px)}#school-slide main .panel{min-height:0}#dashboard .item{padding:6px 0}#dashboard .subjects{margin:5px 0}.rotation-controls{position:absolute;bottom:4px;right:20px}}
 </style></head><body>
 <section id="login-screen" class="login-wrap"><div class="login-card"><div class="eyebrow">CRYSTAL CLEAR EDUCATION · POC</div><h1>School Dashboard</h1><p class="muted">Select a demonstration role. Only Household Display is active in this increment.</p>
 <label for="demo-role">Role</label><select id="demo-role"><option value="Household Display">Household Display</option><option value="Administrator">Administrator</option><option value="Parent">Parent</option><option value="Child">Child</option></select>
@@ -15,13 +47,51 @@
 <p class="warning">This is a PUBLIC preview. The demo gate is not secure authentication. Do not enter real passwords or private school information.</p></div></section>
 <div id="holding" class="login-wrap is-hidden"><div class="login-card"><div class="eyebrow">ROLE RESERVED</div><h1 id="holding-role"></h1><p>No dashboard permissions have been agreed for this role yet.</p><button class="back">Back to login</button></div></div>
 <div id="dashboard" class="is-hidden">
-<header><div><div class="eyebrow">CRYSTAL CLEAR EDUCATION · HOUSEHOLD DISPLAY POC</div><h1>School Readiness</h1><div id="date-label" class="muted"></div></div><div><div class="utility"><span class="tag">Read-only · Living room</span><button id="fullscreen-toggle" type="button" aria-label="Enter fullscreen" aria-pressed="false">⛶ Fullscreen</button><button class="back">Sign out</button></div><div class="clock" id="clock"></div><div class="note" style="text-align:right">Sharjah weather: not connected · No live school sync</div></div></header>
-<main>
+<header><div><div class="eyebrow">CRYSTAL CLEAR EDUCATION · HOUSEHOLD DISPLAY POC</div><h1 id="display-heading">School Readiness</h1><div id="date-label" class="muted"></div></div><div><div class="utility"><span class="tag">Read-only · Living room</span><button id="fullscreen-toggle" type="button" aria-label="Enter fullscreen" aria-pressed="false">⛶ Fullscreen</button><button class="back">Sign out</button></div><div class="clock" id="clock"></div><div class="note" style="text-align:right">Sharjah weather: not connected · No live school sync</div></div></header>
+<div id="school-slide" class="rotation-slide"><main>
 <section class="panel"><h2>Grade 10B</h2><span class="tag">Latest timetable: 11 Oct · 8 periods</span><h3>Today's subjects</h3><div id="ten-subjects" class="subjects"></div><div id="ten-schedule-note" class="note"></div><h3>Homework & deadlines</h3><div class="item">Individual assignments and completion: <strong>not verified</strong> — check school Teams.</div><h3>Morning preparation</h3><div class="item">Pack books and notebooks for the listed subjects; verify the Hindi/French choice and any teacher-specific materials.</div><div class="item">Bring school essentials and check Teams for last-minute instructions.</div></section>
 <section class="panel"><h2>Grade 2C</h2><span class="tag">School timetable + upcoming activities</span><h3>Today's subjects</h3><div id="two-subjects" class="subjects"></div><div id="two-schedule-note" class="note"></div><h3>Upcoming tasks & activities</h3><div class="item"><strong>Wed 14 Oct:</strong> Multiplication Show & Tell — scheduled activity.</div><div class="item"><strong>Thu 15 Oct:</strong> Multiplication worksheet due; return reflection sheets.</div><div class="item"><strong>Thu 15 Oct:</strong> Handwashing Day assembly for the class; individual responsibility not confirmed.</div><div class="item"><strong>Mon 19 Oct:</strong> Science animal mask-making activity.</div><h3>Morning preparation</h3><div id="two-prep" class="item"></div><div class="item">Confirm any newly posted homework with the teacher or school platform; completion status unknown.</div></section>
-</main><footer>Non-identifying class planning information only. Based on previously provided family school documents and Teams notes; some subject choices, dates and requirements require family verification. No child names, photos, individual performance or private records are published. Preview/UAT only, not production acceptance.</footer>
+
+</main></div>
+<section id="household-slide" class="rotation-slide is-hidden" aria-label="Current household status">
+ <div class="ops-head"><div><div class="eyebrow">CRYSTAL CLEAR HOME · 12 OCT 2026</div><p>Current household operations · Evidence-based status · Human decisions retained</p></div><span class="tag">Inspection & actions</span></div>
+ <div class="ops-grid">
+  <article class="ops-card">
+   <div class="kicker">Report 01 · Before / After</div><h2>Kitchen Cleaning Assessment</h2><div><span class="ops-badge">Provisional scoring</span></div>
+   <div class="score-row"><div class="score-box"><small>Before</small><strong>25/100</strong></div><span class="score-arrow">➜</span><div class="score-box after"><small>After</small><strong>70/100</strong></div></div>
+   <div class="ops-note"><strong>Visible improvement:</strong> worktops largely cleared, stove more accessible, most cabinet doors closed.</div>
+   <ul class="ops-list good"><li>Significant reduction in surface clutter</li><li>Kitchen work areas more usable</li><li>Organization improved</li></ul>
+   <p class="ops-foot">Both figures are illustrative until one standard scoring rubric is approved and applied to both sets of evidence.</p>
+  </article>
+  <article class="ops-card">
+   <div class="kicker">Report 01 · Open items</div><h2>Kitchen Remaining Tasks</h2><div><span class="ops-badge">Follow-up needed</span></div>
+   <ul class="ops-list issues"><li><strong>Sink:</strong> remaining cookware and drying rack</li><li><strong>Countertops:</strong> various items and bags remain</li><li><strong>Floor:</strong> small debris still visible</li><li><strong>Cabinets:</strong> final organization needed</li><li><strong>Sanitization:</strong> cannot be verified from photos</li></ul>
+   <div class="ops-task"><span>⏸</span><span><strong>Dishwasher loaded, cycle not started.</strong> Deferred intentionally so Kanwal can decide when the one-hour wash should run.</span></div>
+   <p class="ops-foot">Dishwasher deferral is a household decision, not an automatic cleaning-performance penalty.</p>
+  </article>
+  <article class="ops-card">
+   <div class="kicker">Report 02 · Current status</div><h2>Laundry Management</h2><div><span class="ops-badge">TO DO · No score assigned</span></div>
+   <div class="ops-triple"><div class="ops-tile"><span class="symbol">▤</span>Baskets</div><div class="ops-tile"><span class="symbol">♧</span>Hanging</div><div class="ops-tile"><span class="symbol">◷</span>Sorting</div></div>
+   <div class="ops-note"><strong>Observed:</strong> clothes in multiple baskets, garments hanging, detergents available.</div>
+   <ul class="ops-list issues"><li>Identify dirty, clean and drying items</li><li>Sort washing loads by priority</li><li>Wash only items requiring washing</li><li>Dry, fold and put away completed clothes</li></ul>
+   <p class="ops-foot">A hanging garment is not necessarily dirty. Final classification needs human confirmation.</p>
+  </article>
+ </div>
+</section>
+<div class="rotation-controls"><span id="rotation-label" aria-live="off">School Readiness · 1 of 2</span><button type="button" id="rotation-pause">Pause rotation</button><button type="button" id="rotation-next">Next screen</button></div>
+<footer>Non-identifying class planning information only. Based on previously provided family school documents and Teams notes; some subject choices, dates and requirements require family verification. No child names, photos, individual performance or private records are published. Preview/UAT only, not production acceptance.</footer>
 </div>
 <script>
+
+let rotationTimer=null,rotationIndex=0,rotationPaused=false;
+const rotationScenes=[document.getElementById('school-slide'),document.getElementById('household-slide')];
+function setScene(n){rotationIndex=((n%2)+2)%2;rotationScenes.forEach((scene,i)=>scene.classList.toggle('is-hidden',i!==rotationIndex));document.getElementById('display-heading').textContent=rotationIndex===0?'School Readiness':'Current Household Status';document.getElementById('rotation-label').textContent=(rotationIndex===0?'School Readiness':'Current Household Status')+' · '+(rotationIndex+1)+' of 2'}
+function stopRotation(){if(rotationTimer!==null){clearInterval(rotationTimer);rotationTimer=null}}
+function startRotation(){stopRotation();if(!rotationPaused&&!document.hidden)rotationTimer=setInterval(()=>setScene(rotationIndex+1),10000)}
+document.getElementById('rotation-next').addEventListener('click',()=>{setScene(rotationIndex+1);startRotation()});
+document.getElementById('rotation-pause').addEventListener('click',()=>{rotationPaused=!rotationPaused;document.getElementById('rotation-pause').textContent=rotationPaused?'Resume rotation':'Pause rotation';startRotation()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopRotation();else if(!document.getElementById('dashboard').classList.contains('is-hidden'))startRotation()});
+
 const accounts={'Household Display':{user:'display-demo',password:'HomeScreen26!'}};
 const dayLabels=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const grade10={
@@ -42,9 +112,9 @@ const fullscreenButton=document.getElementById('fullscreen-toggle');
 function syncFullscreenButton(){const active=!!document.fullscreenElement;fullscreenButton.textContent=active?'⛶ Exit fullscreen':'⛶ Fullscreen';fullscreenButton.setAttribute('aria-label',active?'Exit fullscreen':'Enter fullscreen');fullscreenButton.setAttribute('aria-pressed',String(active))}
 fullscreenButton.addEventListener('click',async()=>{try{if(document.fullscreenElement){await document.exitFullscreen()}else if(document.documentElement.requestFullscreen){await document.documentElement.requestFullscreen()}else{fullscreenButton.textContent='Fullscreen unavailable';return}syncFullscreenButton()}catch(e){fullscreenButton.textContent='Fullscreen unavailable';console.warn('Fullscreen request not supported by this browser',e)}});
 document.addEventListener('fullscreenchange',syncFullscreenButton);
-function goLogin(){document.getElementById('dashboard').classList.add('is-hidden');document.getElementById('holding').classList.add('is-hidden');document.getElementById('login-screen').classList.remove('is-hidden');document.getElementById('pass').value=''}
+function goLogin(){stopRotation();document.getElementById('dashboard').classList.add('is-hidden');document.getElementById('holding').classList.add('is-hidden');document.getElementById('login-screen').classList.remove('is-hidden');document.getElementById('pass').value=''}
 document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',goLogin));
 document.getElementById('demo-role').addEventListener('change',e=>{document.getElementById('user').value=e.target.value==='Household Display'?'display-demo':'';document.getElementById('pass').value=''});
-function signIn(){const role=document.getElementById('demo-role').value;const a=accounts[role];if(!a){document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('holding').classList.remove('is-hidden');document.getElementById('holding-role').textContent=role;return}if(document.getElementById('user').value.trim()!==a.user||document.getElementById('pass').value!==a.password){document.getElementById('login-error').textContent='Invalid demonstration login';return}document.getElementById('login-error').textContent='';document.getElementById('pass').value='';document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('dashboard').classList.remove('is-hidden');refresh()}
+function signIn(){const role=document.getElementById('demo-role').value;const a=accounts[role];if(!a){document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('holding').classList.remove('is-hidden');document.getElementById('holding-role').textContent=role;return}if(document.getElementById('user').value.trim()!==a.user||document.getElementById('pass').value!==a.password){document.getElementById('login-error').textContent='Invalid demonstration login';return}document.getElementById('login-error').textContent='';document.getElementById('pass').value='';document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('dashboard').classList.remove('is-hidden');setScene(0);rotationPaused=false;document.getElementById('rotation-pause').textContent='Pause rotation';startRotation();refresh()}
 document.getElementById('signin').addEventListener('click',signIn);document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')signIn()});
 </script></body></html>
