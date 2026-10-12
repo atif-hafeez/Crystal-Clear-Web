@@ -39,6 +39,31 @@
 .rotation-controls button{padding:5px 11px;font-size:12px}
 @media(max-width:800px){.ops-grid{grid-template-columns:1fr}.ops-card{min-height:unset}}
 @media(min-width:1000px) and (min-aspect-ratio:15/9){#dashboard{height:100dvh;overflow:hidden;display:flex;flex-direction:column}#dashboard>header{flex:0 0 auto}#dashboard>.rotation-slide{flex:1;min-height:0;overflow:hidden}#dashboard>footer{flex:0 0 auto}#household-slide .ops-card{min-height:0;height:100%}.ops-grid{height:calc(100% - 58px)}#school-slide main .panel{min-height:0}#dashboard .item{padding:6px 0}#dashboard .subjects{margin:5px 0}.rotation-controls{position:absolute;bottom:4px;right:20px}}
+
+/* Screen 3: public-safe prototype; private photographic assets intentionally excluded. */
+#home-transform-slide{display:flex;flex-direction:column;min-height:0;gap:12px}
+.transform-head{display:flex;align-items:stretch;justify-content:space-between;gap:16px}
+.transform-heading{min-width:0}.transform-heading h2{margin:3px 0}
+.cost-card{background:#203d5a;border:1px solid #6684a3;border-radius:16px;padding:12px 17px;min-width:280px;max-width:370px}
+.cost-card strong{font-size:clamp(21px,2.2vw,34px);color:#fff}
+.cost-line{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding-top:3px;color:#d8e6f7}
+.transform-gallery{background:#122844;border:1px solid #375472;border-radius:18px;padding:14px;display:flex;flex:1;min-height:0;flex-direction:column}
+.transform-gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.transform-gallery-header h3{margin:0}
+.transform-cards{display:grid;grid-template-columns:repeat(var(--transform-count,3),minmax(0,1fr));gap:14px;flex:1;min-height:0}
+.transform-card{border:1px solid #4c6885;border-radius:12px;background:#203d58;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.transform-media{flex:1;min-height:0;display:grid;place-items:center;background:linear-gradient(135deg,#2e4f71,#142d49);padding:15px;text-align:center}
+.transform-media img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+.transform-placeholder{font-size:clamp(16px,1.5vw,25px);font-weight:700;color:#d9e9fa}
+.transform-placeholder small{display:block;font-size:12px;color:#b5c9df;font-weight:400;margin-top:10px}
+.transform-caption{padding:9px 12px;font-size:clamp(12px,1vw,17px);font-weight:700}
+.transform-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:9px}
+.transform-controls button,.transform-controls select{font-size:12px;padding:6px 9px}
+.transform-controls select{width:auto}
+#home-transform-slide .transform-note{font-size:11px;color:#b8cde3}
+@media(max-width:790px){.transform-head{flex-direction:column}.cost-card{max-width:none;min-width:0}.transform-cards{grid-template-columns:1fr!important}.transform-media{min-height:185px}.transform-gallery{min-height:450px}.transform-card{min-height:220px}}
+@media(min-width:1000px) and (min-aspect-ratio:15/9){#home-transform-slide{height:100%}.transform-gallery{overflow:hidden}.transform-cards{overflow:hidden}.transform-media{min-height:0}#home-transform-slide .transform-head{flex:0 0 auto}}
+@media(prefers-reduced-motion:reduce){.transform-card{transition:none}}
 </style></head><body>
 <section id="login-screen" class="login-wrap"><div class="login-card"><div class="eyebrow">CRYSTAL CLEAR EDUCATION · POC</div><h1>School Dashboard</h1><p class="muted">Select a demonstration role. Only Household Display is active in this increment.</p>
 <label for="demo-role">Role</label><select id="demo-role"><option value="Household Display">Household Display</option><option value="Administrator">Administrator</option><option value="Parent">Parent</option><option value="Child">Child</option></select>
@@ -78,19 +103,66 @@
   </article>
  </div>
 </section>
-<div class="rotation-controls"><span id="rotation-label" aria-live="off">School Readiness · 1 of 2</span><button type="button" id="rotation-pause">Pause rotation</button><button type="button" id="rotation-next">Next screen</button></div>
+
+<section id="home-transform-slide" class="rotation-slide is-hidden" aria-label="Home transformation">
+ <div class="transform-head"><div class="transform-heading"><div class="eyebrow">CRYSTAL CLEAR HOME · CONCEPT STAGE</div><h2>Home Transformation</h2><p class="muted">Current state → proposed improvements → quoted and actual outcomes</p></div>
+ <aside class="cost-card" aria-label="Indicative project cost"><div class="eyebrow">PROJECT COST ESTIMATE</div><strong>AED 2,866.14</strong><div class="cost-line"><span>Materials · 70%</span><b>AED 2,006.30</b></div><div class="cost-line"><span>Labour · 30%</span><b>AED 859.84</b></div><div class="cost-line"><span>VAT · illustrative 5%</span><b>AED 143.31</b></div><div class="cost-line"><span>Including VAT</span><b>AED 3,009.45</b></div><div class="transform-note">Planning estimate, not contractor quotation</div></aside></div>
+ <div class="transform-gallery"><div class="transform-gallery-header"><h3 id="transform-group-title">Living & Sleeping</h3><span class="tag" id="transform-group-counter">1 of 3</span></div>
+ <div class="transform-cards" id="transform-cards" aria-live="off"></div>
+ <div class="transform-controls"><span id="transform-label" class="muted">Room gallery · every 10 seconds</span><div><label class="sr-only" for="transform-interval">Gallery interval</label><select id="transform-interval" aria-label="Gallery rotation interval"><option value="5000">5 seconds</option><option value="10000" selected>10 seconds</option><option value="15000">15 seconds</option></select> <button id="transform-prev" type="button">Previous group</button> <button id="transform-pause" type="button">Pause gallery</button> <button id="transform-next" type="button">Next group</button></div></div></div>
+ <p class="transform-note">Synthetic preview placeholders only. Private household photographs and nine concept boards are not published on this public site. Source: private Zaman Family DIRS issues #11 and #12.</p>
+</section>
+<div class="rotation-controls"><span id="rotation-label" aria-live="off">School Readiness · 1 of 3</span><button type="button" id="rotation-pause">Pause rotation</button><button type="button" id="rotation-next">Next screen</button></div>
 <footer>Non-identifying class planning information only. Based on previously provided family school documents and Teams notes; some subject choices, dates and requirements require family verification. No child names, photos, individual performance or private records are published. Preview/UAT only, not production acceptance.</footer>
 </div>
 <script>
 
 let rotationTimer=null,rotationIndex=0,rotationPaused=false;
-const rotationScenes=[document.getElementById('school-slide'),document.getElementById('household-slide')];
-function setScene(n){rotationIndex=((n%2)+2)%2;rotationScenes.forEach((scene,i)=>scene.classList.toggle('is-hidden',i!==rotationIndex));document.getElementById('display-heading').textContent=rotationIndex===0?'School Readiness':'Current Household Status';document.getElementById('rotation-label').textContent=(rotationIndex===0?'School Readiness':'Current Household Status')+' · '+(rotationIndex+1)+' of 2'}
+const rotationScenes=[document.getElementById('school-slide'),document.getElementById('household-slide'),document.getElementById('home-transform-slide')];
+const sceneNames=['School Readiness','Current Household Status','Home Transformation'];
+function setScene(n){rotationIndex=((n%rotationScenes.length)+rotationScenes.length)%rotationScenes.length;rotationScenes.forEach((scene,i)=>scene.classList.toggle('is-hidden',i!==rotationIndex));document.getElementById('display-heading').textContent=sceneNames[rotationIndex];document.getElementById('rotation-label').textContent=sceneNames[rotationIndex]+' · '+(rotationIndex+1)+' of '+rotationScenes.length}
 function stopRotation(){if(rotationTimer!==null){clearInterval(rotationTimer);rotationTimer=null}}
 function startRotation(){stopRotation();if(!rotationPaused&&!document.hidden)rotationTimer=setInterval(()=>setScene(rotationIndex+1),10000)}
 document.getElementById('rotation-next').addEventListener('click',()=>{setScene(rotationIndex+1);startRotation()});
 document.getElementById('rotation-pause').addEventListener('click',()=>{rotationPaused=!rotationPaused;document.getElementById('rotation-pause').textContent=rotationPaused?'Resume rotation':'Pause rotation';startRotation()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopRotation();else if(!document.getElementById('dashboard').classList.contains('is-hidden'))startRotation()});
+
+
+/* Room-based grouping: private media must be added only after publication approval. */
+const transformGroups=[
+{title:'Living & Sleeping',items:[['TV Wall / Living Area','living-tv'],['Pink Bunk-Bed Area','pink-bunk'],['Main Bedroom','main-bedroom']]},
+{title:'Kitchen & Utility',items:[['Kitchen / Cooking & Sink','kitchen-cooking'],['Kitchen / Fridge + Utility','kitchen-utility']]},
+{title:'Storage, Study & Bathroom',items:[["Children's Bedroom / Study",'children-study'],['Wardrobes / Dresser','wardrobe-dresser'],['Bathroom','bathroom']]}
+];
+let transformIndex=0,transformPaused=false,transformTimer=null;
+const transformCards=document.getElementById('transform-cards');
+function showTransformGroup(index){
+ transformIndex=((index%transformGroups.length)+transformGroups.length)%transformGroups.length;
+ const group=transformGroups[transformIndex];
+ document.getElementById('transform-group-title').textContent=group.title;
+ document.getElementById('transform-group-counter').textContent=(transformIndex+1)+' of '+transformGroups.length;
+ transformCards.style.setProperty('--transform-count',String(group.items.length));
+ const fragment=document.createDocumentFragment();
+ group.items.forEach(([name,key])=>{
+   const card=document.createElement('article');card.className='transform-card';
+   const media=document.createElement('div');media.className='transform-media';
+   // Media is intentionally absent in public preview. When assets are approved,
+   // replace this placeholder with an image whose URL is from an approved manifest.
+   const placeholder=document.createElement('div');placeholder.className='transform-placeholder';placeholder.textContent=name;
+   const hint=document.createElement('small');hint.textContent='Concept visualization pending approved private-media delivery';placeholder.appendChild(hint);media.appendChild(placeholder);
+   const caption=document.createElement('div');caption.className='transform-caption';caption.textContent=name;
+   card.dataset.area=key;card.append(media,caption);fragment.appendChild(card);
+ });
+ transformCards.replaceChildren(fragment);
+}
+function stopTransform(){if(transformTimer!==null){clearInterval(transformTimer);transformTimer=null}}
+function startTransform(){stopTransform();if(!transformPaused&&!document.hidden&&!document.getElementById('dashboard').classList.contains('is-hidden')){transformTimer=setInterval(()=>showTransformGroup(transformIndex+1),Number(document.getElementById('transform-interval').value))}}
+document.getElementById('transform-prev').addEventListener('click',()=>{showTransformGroup(transformIndex-1);startTransform()});
+document.getElementById('transform-next').addEventListener('click',()=>{showTransformGroup(transformIndex+1);startTransform()});
+document.getElementById('transform-pause').addEventListener('click',()=>{transformPaused=!transformPaused;document.getElementById('transform-pause').textContent=transformPaused?'Resume gallery':'Pause gallery';startTransform()});
+document.getElementById('transform-interval').addEventListener('change',startTransform);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTransform();else startTransform()});
+showTransformGroup(0);
 
 const accounts={'Household Display':{user:'display-demo',password:'HomeScreen26!'}};
 const dayLabels=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -112,9 +184,9 @@ const fullscreenButton=document.getElementById('fullscreen-toggle');
 function syncFullscreenButton(){const active=!!document.fullscreenElement;fullscreenButton.textContent=active?'⛶ Exit fullscreen':'⛶ Fullscreen';fullscreenButton.setAttribute('aria-label',active?'Exit fullscreen':'Enter fullscreen');fullscreenButton.setAttribute('aria-pressed',String(active))}
 fullscreenButton.addEventListener('click',async()=>{try{if(document.fullscreenElement){await document.exitFullscreen()}else if(document.documentElement.requestFullscreen){await document.documentElement.requestFullscreen()}else{fullscreenButton.textContent='Fullscreen unavailable';return}syncFullscreenButton()}catch(e){fullscreenButton.textContent='Fullscreen unavailable';console.warn('Fullscreen request not supported by this browser',e)}});
 document.addEventListener('fullscreenchange',syncFullscreenButton);
-function goLogin(){stopRotation();document.getElementById('dashboard').classList.add('is-hidden');document.getElementById('holding').classList.add('is-hidden');document.getElementById('login-screen').classList.remove('is-hidden');document.getElementById('pass').value=''}
+function goLogin(){stopRotation();stopTransform();document.getElementById('dashboard').classList.add('is-hidden');document.getElementById('holding').classList.add('is-hidden');document.getElementById('login-screen').classList.remove('is-hidden');document.getElementById('pass').value=''}
 document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',goLogin));
 document.getElementById('demo-role').addEventListener('change',e=>{document.getElementById('user').value=e.target.value==='Household Display'?'display-demo':'';document.getElementById('pass').value=''});
-function signIn(){const role=document.getElementById('demo-role').value;const a=accounts[role];if(!a){document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('holding').classList.remove('is-hidden');document.getElementById('holding-role').textContent=role;return}if(document.getElementById('user').value.trim()!==a.user||document.getElementById('pass').value!==a.password){document.getElementById('login-error').textContent='Invalid demonstration login';return}document.getElementById('login-error').textContent='';document.getElementById('pass').value='';document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('dashboard').classList.remove('is-hidden');setScene(0);rotationPaused=false;document.getElementById('rotation-pause').textContent='Pause rotation';startRotation();refresh()}
+function signIn(){const role=document.getElementById('demo-role').value;const a=accounts[role];if(!a){document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('holding').classList.remove('is-hidden');document.getElementById('holding-role').textContent=role;return}if(document.getElementById('user').value.trim()!==a.user||document.getElementById('pass').value!==a.password){document.getElementById('login-error').textContent='Invalid demonstration login';return}document.getElementById('login-error').textContent='';document.getElementById('pass').value='';document.getElementById('login-screen').classList.add('is-hidden');document.getElementById('dashboard').classList.remove('is-hidden');setScene(0);rotationPaused=false;document.getElementById('rotation-pause').textContent='Pause rotation';startRotation();startTransform();refresh()}
 document.getElementById('signin').addEventListener('click',signIn);document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')signIn()});
 </script></body></html>
